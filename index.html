@@ -105,20 +105,7 @@
       50% { transform: translateY(-10px); }
     }
 
-    @keyframes pulse-gold {
-      0%, 100% {
-        text-shadow: 0 0 40px rgba(212, 175, 55, 0.3),
-                     0 0 80px rgba(212, 175, 55, 0.15),
-                     0 0 120px rgba(212, 175, 55, 0.05);
-        filter: brightness(1);
-      }
-      50% {
-        text-shadow: 0 0 60px rgba(212, 175, 55, 0.6),
-                     0 0 120px rgba(212, 175, 55, 0.3),
-                     0 0 180px rgba(212, 175, 55, 0.15);
-        filter: brightness(1.15);
-      }
-    }
+
 
     @keyframes shimmer {
       0% { background-position: -200% center; }
@@ -268,15 +255,28 @@
     }
 
     .hero-alef {
-      font-family: 'Heebo', serif;
-      font-size: clamp(6rem, 18vw, 12rem);
-      font-weight: 100;
-      color: var(--gold);
-      line-height: 1;
+      width: 280px;
+      max-width: 60vw;
       margin-bottom: 1rem;
-      animation: pulse-gold 4s ease-in-out infinite;
+      animation: pulse-glow 4s ease-in-out infinite;
       cursor: default;
       user-select: none;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% {
+        filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3))
+               drop-shadow(0 0 50px rgba(212, 175, 55, 0.1));
+        transform: scale(1);
+      }
+      50% {
+        filter: drop-shadow(0 0 35px rgba(212, 175, 55, 0.6))
+               drop-shadow(0 0 80px rgba(212, 175, 55, 0.25));
+        transform: scale(1.03);
+      }
     }
 
     .hero-title {
@@ -833,7 +833,7 @@
     <canvas id="particle-canvas"></canvas>
     <div class="hero-bg-orb"></div>
     <div class="hero-content">
-      <div class="hero-alef" aria-hidden="true">א</div>
+      <img src="alef-glow.png" alt="Alef" class="hero-alef">
       <h1 class="hero-title">Alef AI Systems</h1>
       <p class="hero-tagline">God Powered Technology — Where Wisdom Meets Intelligence</p>
       <a href="#philosophy" class="btn-primary">
